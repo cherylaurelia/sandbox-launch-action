@@ -1,0 +1,18 @@
+name: PullRequest-B
+
+on:
+  pull_request:
+    branches: [master]
+    types: [opened]
+
+jobs:
+  build:
+    name: Crafting Preview Link (B)
+    runs-on: [ubuntu-latest]
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - name: generate-preview-url
+        uses: crafting-dev/sandbox-launch-action@v0.5.3
+        with:
+          template: TEMPLATE_NAME
